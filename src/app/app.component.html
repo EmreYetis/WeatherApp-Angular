@@ -1,0 +1,33 @@
+<div class="weather-app">
+  <h1>Hava Durumu Uygulaması</h1>
+  <div class="search-container">
+    <input [(ngModel)]="city" placeholder="Şehir giriniz...">
+    <button (click)="onSearch()">Ara</button>
+  </div>
+
+  <div *ngIf="currentWeather" class="current-weather">
+    <h2>{{ currentWeather.name }} Güncel Hava Durumu</h2>
+    <div class="weather-info">
+      <img [src]="'http://openweathermap.org/img/w/' + currentWeather.weather[0].icon + '.png'" alt="Hava durumu ikonu">
+      <p class="temperature">{{ currentWeather.main.temp | number:'1.0-0' }}°C</p> <p>-</p>
+      <p class="description">{{ translateWeatherDescription(currentWeather.weather[0].description) }}</p>
+    </div>
+    <div class="details">
+      <p>Hissedilen: {{ currentWeather.main.feels_like | number:'1.0-0' }}°C</p>
+      <p>Nem: {{ currentWeather.main.humidity }}%</p>
+    </div>
+  </div>
+
+  <div *ngIf="fiveDayForecast.length > 0" class="forecast">
+    <h2>5 Günlük Tahmin</h2>
+    <div class="forecast-list">
+      <div *ngFor="let day of fiveDayForecast" class="forecast-item">
+        <p class="date">{{ formatDate(day.dt_txt, 'dd/MM') }}</p>
+        <p class="day">{{ formatDate(day.dt_txt, 'EEEE') }}</p>
+        <img [src]="'http://openweathermap.org/img/w/' + day.weather[0].icon + '.png'" alt="Hava durumu ikonu">
+        <p class="temperature">{{ day.main.temp | number:'1.0-0' }}°C</p>
+        <p class="description">{{ translateWeatherDescription(day.weather[0].description) }}</p>
+      </div>
+    </div>
+  </div>
+</div>

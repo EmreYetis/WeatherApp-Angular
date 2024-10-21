@@ -1,0 +1,131 @@
+$primary-color: #3498db;
+$secondary-color: #2c3e50;
+$background-color: #ecf0f1;
+
+.weather-app {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $background-color;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+
+  h1, h2 {
+    text-align: center;
+    color: $secondary-color;
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    input {
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid $primary-color;
+      border-radius: 5px 0 0 5px;
+      width: 50%;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 8px 15px;
+      font-size: 14px;
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+
+  .current-weather {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+    .weather-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+
+      img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
+
+      .temperature {
+        font-size: 36px;
+        color: $primary-color;
+      }
+
+      .description {
+        font-size: 18px;
+        color: $secondary-color;
+      }
+    }
+
+    .details {
+      display: flex;
+      justify-content: space-around;
+
+      p {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .forecast {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+    .forecast-list {
+      display: flex;
+      justify-content: space-between;
+
+      .forecast-item {
+        text-align: center;
+        padding: 10px;
+
+        .date {
+          color: $secondary-color;
+        }
+
+        .day {
+          font-size: 12px;
+          color: $secondary-color;
+          margin-top: 5px;
+        }
+
+        img {
+          width: 50px;
+          height: 50px;
+        }
+
+        .temperature {
+          font-size: 18px;
+          color: $primary-color;
+        }
+
+        .description {
+          font-size: 14px;
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+}
